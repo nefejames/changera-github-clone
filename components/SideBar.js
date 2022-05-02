@@ -74,70 +74,76 @@ const userLinks = [
 
 export default function SideBar({}) {
   const dispatch = useDispatch();
-  const { userData, loading, error } = useSelector((state) => state.userData);
+  const { userData, loading } = useSelector((state) => state.userData);
 
   useEffect(() => {
     dispatch(getGitHubUserData());
   }, [dispatch]);
 
-  return (
-    <StyledSideBar>
-      <pre>{JSON.stringify(userData, null, 2)}</pre>
-      <div className="user-container">
-        <div className="avatar">
-          <Image alt="GitHub user" src="/default-img.png" layout="fill" />
+  if (loading && !userData) {
+    return <p>loading...</p>;
+  }
+
+  if (userData.items) {
+    return (
+      <StyledSideBar>
+        <div className="user-container">
+          <div className="avatar">
+            <Image alt="GitHub user" src="/default-img.png" layout="fill" />
+          </div>
+
+          <div className="user-name-info">
+            <h1>Emadamerho-Atori Nefe</h1>
+
+            <span className="username">{userData.items[0].login}</span>
+          </div>
         </div>
 
-        <div className="user-name-info">
-          <h1>Emadamerho-Atori Nefe</h1>
-          <span className="username">{userData.items[0].login}</span>
+        <p className="user-bio">
+          Front end web developer and technical writer - always learning{" "}
+        </p>
+
+        <Button btnText="Edit profile" padding="0.5rem 1.6rem" fullWidth />
+
+        <div className="user-stats">
+          <a href="#">
+            <svg
+              text="muted"
+              fill="#8b949e"
+              aria-hidden="true"
+              height="16"
+              viewBox="0 0 16 16"
+              version="1.1"
+              width="16"
+              data-view-component="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"
+              ></path>
+            </svg>
+            <span>31</span>
+            followers
+          </a>{" "}
+          ·{" "}
+          <a href="#">
+            <span>139</span>
+            following
+          </a>
         </div>
-      </div>
 
-      <p className="user-bio">
-        Front end web developer and technical writer - always learning{" "}
-      </p>
-
-      <Button btnText="Edit profile" padding="0.5rem 1.6rem" fullWidth />
-
-      <div className="user-stats">
-        <a href="#">
-          <svg
-            text="muted"
-            fill="#8b949e"
-            aria-hidden="true"
-            height="16"
-            viewBox="0 0 16 16"
-            version="1.1"
-            width="16"
-            data-view-component="true"
-          >
-            <path
-              fillRule="evenodd"
-              d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"
-            ></path>
-          </svg>
-          <span>31</span>
-          followers
-        </a>{" "}
-        ·{" "}
-        <a href="#">
-          <span>139</span>
-          following
-        </a>
-      </div>
-
-      <div className="user-links">
-        <ul>
-          {userLinks.map((link) => (
-            <li key={link.label}>
-              {link.icon} {link.label}{" "}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </StyledSideBar>
-  );
+        <div className="user-links">
+          <ul>
+            {userLinks.map((link) => (
+              <li key={link.label}>
+                {link.icon} {link.label}{" "}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </StyledSideBar>
+    );
+  } else return <p>loading...</p>;
 }
 
 const StyledSideBar = styled.div`
@@ -194,29 +200,6 @@ const StyledSideBar = styled.div`
   button {
     margin-bottom: 1.6rem;
   }
-
-  /* button {
-    width: 100%;
-    padding: 0.5rem 1.6rem;
-    font-size: 1.4rem;
-    font-weight: 500;
-    line-height: 20px;
-    cursor: pointer;
-    border-radius: 6px;
-    
-
-    color: var(--btn-text-color);
-    background-color: var(--btn-bg-color);
-    border: 0.1rem solid var(--btn-border-color);
-    box-shadow: var(--btn-shadow), var(--btn-inset-shadow);
-
-    transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
-    transition-property: all;
-
-    &:hover {
-      background-color: var(--btn-hover-bg-color);
-    }
-  } */
 
   .user-stats {
     display: flex;
