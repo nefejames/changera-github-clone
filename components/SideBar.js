@@ -179,21 +179,21 @@ const StyledSideBar = styled.div`
     margin-top: 1.6rem;
 
     h1 {
-      font-size: 24px;
+      font-size: var(--font-3xl);
       line-height: 1.25;
       font-weight: 600;
     }
 
     .username {
       color: var(--accent-grey);
-      font-size: 2rem;
+      font-size: var(--font-2xl);
       line-height: 24px;
       font-weight: 300;
     }
   }
 
   .user-bio {
-    font-size: 1.6rem;
+    font-size: var(--font-xl);
     margin: 1.6rem 0;
   }
 
@@ -204,7 +204,7 @@ const StyledSideBar = styled.div`
   .user-stats {
     display: flex;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: var(--font-lg);
     margin-bottom: 1.6rem;
 
     a {
@@ -245,7 +245,7 @@ const StyledSideBar = styled.div`
 
   .user-links {
     li {
-      font-size: 1.4rem;
+      font-size: var(--font-lg);
       padding: 0.3rem 0;
       list-style: none;
       display: flex;

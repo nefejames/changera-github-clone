@@ -111,8 +111,8 @@ export default function Navbar() {
 const StyledNavbar = styled.nav`
   --link-border-bottom-color: #fd8c73;
   --count-bg-color: rgba(175, 184, 193, 0.2);
+
   padding: 0 1.6rem;
-  /* outline: 1px solid orange; */
   position: relative;
 
   ul {
@@ -120,7 +120,7 @@ const StyledNavbar = styled.nav`
   }
 
   li {
-    font-size: 1.4rem;
+    font-size: var(--font-lg);
     padding: 1.4rem 1.6rem;
     text-align: center;
     text-transform: capitalize;
@@ -139,7 +139,7 @@ const StyledNavbar = styled.nav`
       display: inline-block;
       width: 30px;
       padding: 0 0.6rem;
-      font-size: 1.2rem;
+      font-size: var(--font-sm);
       font-weight: 500;
       line-height: 1.8rem;
       text-align: center;

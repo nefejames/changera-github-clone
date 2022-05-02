@@ -26,7 +26,7 @@ export const StyledButton = styled.button`
   color: ${(props) => (props.textColor ? props.textColor : "#24292f")};
   background: ${(props) => (props.bgColor ? props.bgColor : "#f6f8fa")};
   padding: ${(props) => (props.padding ? props.padding : "0.8rem 1.6rem")};
-  font-size: 1.4rem;
+  font-size: var(--font-lg);
   font-weight: 500;
   cursor: pointer;
   width: ${(props) => props.fullWidth && "100%"};
@@ -42,5 +42,9 @@ export const StyledButton = styled.button`
   svg {
     fill: currentColor;
     margin-right: 0.5rem;
+  }
+
+  &:hover {
+    background: var(--btn-hover-bg-color);
   }
 `;

@@ -66,7 +66,7 @@ const StyledFooter = styled.footer`
     align-items: center;
 
     span {
-      font-size: 1.2rem;
+      font-size: var(--font-sm);
     }
 
     svg {
@@ -82,7 +82,7 @@ const StyledFooter = styled.footer`
     a {
       color: var(--link-hover-color);
       text-decoration: none;
-      font-size: 1.3rem;
+      font-size: var(--font-md);
       text-transform: capitalize;
       line-height: 0.6;
 

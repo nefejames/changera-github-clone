@@ -27,17 +27,10 @@ export default function Home() {
   );
 }
 
-// search sidebar-main area css styles - responsive
-
 const StyledHome = styled.div`
-  --sidebar-width: 296px; //296
-  --layout-gutter: 24px; //16px
+  --sidebar-width: 296px;
+  --layout-gutter: 24px;
   --gap: 3rem;
-
-  .not-logged-in {
-    font-size: 3rem;
-    margin-top: 3rem;
-  }
 
   .container {
     margin-top: 2.4rem;
@@ -57,15 +50,5 @@ const StyledHome = styled.div`
         flex: 1;
       }
     }
-  }
-
-  .sidebar {
-    /* background: blue; */
-    /* outline: 1px solid red; */
-  }
-
-  .repos-container {
-    /* background: red; */
-    /* outline: 1px solid blue; */
   }
 `;

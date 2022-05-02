@@ -13,7 +13,7 @@ export default function Select({ selectOptions }) {
 }
 
 const StyledSelect = styled.select`
-  font-size: 1.4rem;
+  font-size: var(--font-lg);
   font-weight: 500;
   line-height: 2rem;
   cursor: pointer;

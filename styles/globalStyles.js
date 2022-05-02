@@ -18,18 +18,27 @@ const GlobalStyles = createGlobalStyle`
   }
 
   :root{
+    /* colors */
     --grey-primary: #24292f; //c9d1d9
     --grey-secondary: #8b949e;
 
     --link-hover-color: #0969da;
 
-    --btn-border-color: rgba(27, 31, 36, 0.15);
-
-    --btn-text-color: #24292f;
     --btn-bg-color: #f6f8fa;
+    --btn-text-color: #24292f;
+    --btn-hover-bg-color: #f3f4f6;
+    --btn-border-color: rgba(27, 31, 36, 0.15);
     --btn-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
     --btn-inset-shadow: 0 1px 0 rgba(225, 225, 225, 0.25);
-   --btn-hover-bg-color: #f3f4f6;
+
+
+    /* font sizes */
+    --font-sm: 1.2rem;
+    --font-md: 1.3rem;
+    --font-lg: 1.4rem;
+    --font-xl: 1.6rem;
+    --font-2xl: 2rem;
+    --font-3xl: 2.4rem;
   }
 `;
 

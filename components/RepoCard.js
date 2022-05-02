@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import BorderBottomLine from "./Form/components/borderBottomLine";
+
 export default function RepoCard() {
   return (
     <Card>
@@ -40,7 +41,7 @@ const Card = styled.div`
     margin-bottom: 0.7rem;
 
     .title {
-      font-size: 2rem;
+      font-size: var(--font-2xl);
       font-weight: 600;
       word-break: break-all;
       color: var(--link-hover-color);
@@ -59,7 +60,7 @@ const Card = styled.div`
       font-weight: 500;
       line-height: 18px;
       border-radius: 2em;
-      font-size: 1.2rem;
+      font-size: var(--font-sm);
       margin-left: 1rem;
     }
   }
@@ -67,7 +68,7 @@ const Card = styled.div`
   .project-description {
     display: inline-block;
     margin-bottom: 1.5rem;
-    font-size: 1.4rem;
+    font-size: var(--font-lg);
   }
 
   .project-details {
@@ -75,7 +76,7 @@ const Card = styled.div`
 
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: var(--font-sm);
 
     .repo-lang-box {
       display: flex;
@@ -90,9 +91,6 @@ const Card = styled.div`
         border-radius: 50%;
         background: #2b7489;
       }
-    }
-
-    .last-updated {
     }
   }
 `;
