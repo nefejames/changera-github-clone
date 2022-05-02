@@ -1,10 +1,6 @@
 import styled from "styled-components";
-import { useSession, signIn, signOut } from "next-auth/react";
-import { StyledButton } from "@components/Form/components/Button";
 
 export default function Header() {
-  const { data: session } = useSession();
-
   return (
     <StyledHeader>
       <div className="logo">
@@ -23,16 +19,6 @@ export default function Header() {
           ></path>
         </svg>
       </div>
-
-      {!session && (
-        <StyledButton onClick={() => signIn()}>
-          Sign in with GitHub
-        </StyledButton>
-      )}
-
-      {session && (
-        <StyledButton onClick={() => signOut()}>Sign out</StyledButton>
-      )}
     </StyledHeader>
   );
 }
@@ -42,7 +28,7 @@ const StyledHeader = styled.header`
 
   color: #fff;
   background: var(--grey-primary);
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

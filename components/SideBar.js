@@ -2,6 +2,10 @@ import styled from "styled-components";
 import Image from "next/image";
 import { Button } from "./Form/components";
 
+import { getGitHubUserData } from "redux/gitHubSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+
 const userLinks = [
   {
     label: "Lagos, Nigeria",
@@ -68,9 +72,17 @@ const userLinks = [
   },
 ];
 
-export default function SideBar() {
+export default function SideBar({}) {
+  const dispatch = useDispatch();
+  const { userData, loading, error } = useSelector((state) => state.userData);
+
+  useEffect(() => {
+    dispatch(getGitHubUserData());
+  }, [dispatch]);
+
   return (
     <StyledSideBar>
+      <pre>{JSON.stringify(userData, null, 2)}</pre>
       <div className="user-container">
         <div className="avatar">
           <Image alt="GitHub user" src="/default-img.png" layout="fill" />
@@ -78,7 +90,7 @@ export default function SideBar() {
 
         <div className="user-name-info">
           <h1>Emadamerho-Atori Nefe</h1>
-          <span className="username">nefejames</span>
+          <span className="username">{userData.items[0].login}</span>
         </div>
       </div>
 
